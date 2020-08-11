@@ -7,7 +7,6 @@ RUN gem install bundler:1.16.2 --no-document
 RUN gem install rails --no-document
 RUN gem install rake --no-document
 
-
 ONBUILD COPY app /opt/app
 ONBUILD WORKDIR /opt/app
 
@@ -26,5 +25,3 @@ ONBUILD RUN rake db:seed
 # docker run -it --rm -p 3000:3000 ex02
 
 #ip:3000 in browser
-
-# docker rm -f $(docker ps -a -q)
