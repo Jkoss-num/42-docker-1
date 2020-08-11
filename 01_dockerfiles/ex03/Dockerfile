@@ -10,11 +10,11 @@ RUN wget https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/scrip
 
 RUN apt update && apt install -y tzdata gitlab-ce && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-EXPOSE 443 80 22
+EXPOSE 22 80 443
 
 ENTRYPOINT (/opt/gitlab/embedded/bin/runsvdir-start &) && gitlab-ctl reconfigure && tail -f /dev/null
 
 # docker build -t ex03 .
+# docker run -it --rm -p 8080:22 -p 8022:80 -p 8443:443 --privileged ex03
 
-# docker run -it --rm -p 8080:80 -p 8022:22 -p 8443:443 --privileged ex03
 # ip:8080 in browser
