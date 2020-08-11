@@ -1,0 +1,10 @@
+FROM alpine
+
+MAINTAINER  otiffiny <otiffiny@student.21-school.ru>
+
+RUN apk update && apk upgrade && apk add vim
+
+ENTRYPOINT vim
+
+# docker build -t ex00 .
+# docker run --rm -ti ex00
